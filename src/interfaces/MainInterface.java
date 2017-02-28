@@ -24,4 +24,6 @@ public interface MainInterface {
     @WebMethod void logStatus();
    // @WebMethod String hentUrl(String url) throws IOException;
     @WebMethod void hentOrdFraDr() throws Exception;
+    //@WebMethod void login();
+    
 }
