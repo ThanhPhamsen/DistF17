@@ -15,7 +15,7 @@ public class MainServer {
         URL url = new URL("http://javabog.dk:9901/brugeradmin?wsdl");
 	QName qname = new QName("http://soap.transport.brugerautorisation/", "BrugeradminImplService");
 	Service service = Service.create(url, qname);
-        Brugeradmin brugertjek = service.getPort(Brugeradmin.class);
+       // Brugeradmin brugertjek = service.getPort(Brugeradmin.class);
         
         
         System.out.println("Start server!");
