@@ -3,7 +3,7 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
 */
-package interfaces;
+package semesterprojektgalgeleg;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.jws.WebMethod;

@@ -5,7 +5,7 @@
  */
 package semesterprojektgalgeleg;
 
-import interfaces.MainInterface;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.xml.namespace.QName;
@@ -18,9 +18,9 @@ import java.util.Scanner;
  */
 public class StandardPlayer {
     public static void main(String[] args) throws MalformedURLException {
-        URL url = new URL("http://ubuntu4.javabog.dk:9978/galgeleg?wsdl");
-       //   URL url = new URL("http://localhost:9978/brugeradmin?wsdl");
-		QName qname = new QName("http://semesterprojektgalgeleg/", "GameLogicService");
+        //URL url = new URL("http://ubuntu4.javabog.dk:9978/galgeleg?wsdl");
+          URL url = new URL("http://localhost:9978/galgeleg?wsdl");
+		QName qname = new QName("http://server/", "GameLogicService");
                 Service service = Service.create(url, qname);
                 MainInterface i = service.getPort(MainInterface.class);
                     i.nulstil();
