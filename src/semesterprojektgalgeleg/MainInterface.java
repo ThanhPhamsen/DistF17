@@ -22,6 +22,7 @@ public interface MainInterface {
     @WebMethod void opdaterSynligtOrd();
     @WebMethod void gætBogstav(String bogstav);
     @WebMethod void logStatus();
+    @WebMethod int hentAntalForsoeg();
    // @WebMethod String hentUrl(String url) throws IOException;
     @WebMethod void hentOrdFraDr() throws Exception;
     //@WebMethod void login();
