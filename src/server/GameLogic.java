@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import javax.jws.WebService;
-import interfaces.MainInterface;
+import semesterprojektgalgeleg.MainInterface;
 
 @WebService(endpointInterface = "semesterprojektgalgeleg.MainInterface")
 public class GameLogic implements MainInterface {
