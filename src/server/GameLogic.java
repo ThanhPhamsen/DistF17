@@ -15,12 +15,15 @@ import semesterprojektgalgeleg.MainInterface;
 public class GameLogic implements MainInterface {
     private ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
-    private ArrayList<String> brugteBogstaver = new ArrayList<String>();
+    ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private String synligtOrd;
     private int antalForkerteBogstaver;
+    int antalForsoeg = 6;
+    int antalForsoegTilbage = 6;
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
+    
     
     
     public ArrayList<String> getBrugteBogstaver() {
@@ -55,39 +58,28 @@ public class GameLogic implements MainInterface {
         return spilletErTabt || spilletErVundet;
     }
     
-    /*
-    public Galgelogik() {
-        muligeOrd.add("bil");
-        muligeOrd.add("computer");
-        muligeOrd.add("programmering");
-        muligeOrd.add("motorvej");
-        muligeOrd.add("busrute");
-        muligeOrd.add("gangsti");
-        muligeOrd.add("skovsnegl");
-        muligeOrd.add("solsort");
+    
+    public GameLogic() {
+         muligeOrd.add("marcuserenabe");
+        muligeOrd.add("thanhersej");
+        muligeOrd.add("danskkodning");
+        muligeOrd.add("banana");
+        muligeOrd.add("supermario");
+        muligeOrd.add("harrypotter");
+        muligeOrd.add("lamp");
+        muligeOrd.add("iphone"); 
         nulstil();
     }
-    */
     
-    public void getKeyWord(){
-       muligeOrd.add("MarcusErEnAbe");
-        muligeOrd.add("ThanhErSej");
-        muligeOrd.add("DanskKodning");
-        muligeOrd.add("Banana");
-        muligeOrd.add("SuperMario");
-        muligeOrd.add("HarryPotter");
-        muligeOrd.add("Lamp");
-        muligeOrd.add("iphone"); 
-    }
+    
     
     public void nulstil() {
-        getKeyWord();
         brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
         spilletErVundet = false;
         spilletErTabt = false;
        // ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
-       ordet = "THANH"; 
+       ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
        opdaterSynligtOrd();
     }
     
@@ -107,6 +99,7 @@ public class GameLogic implements MainInterface {
     }
     
     public void gætBogstav(String bogstav) {
+        
         if (bogstav.length() != 1) return;
         System.out.println("Der gættes på bogstavet: " + bogstav);
         if (brugteBogstaver.contains(bogstav)) return;
@@ -115,6 +108,8 @@ public class GameLogic implements MainInterface {
         brugteBogstaver.add(bogstav);
         
         if (ordet.contains(bogstav)) {
+         //if (ordet.contains(bogstav.toLowerCase()) || ordet.contains(bogstav.toUpperCase())) {
+
             sidsteBogstavVarKorrekt = true;
             System.out.println("Bogstavet var korrekt: " + bogstav);
         } else {
@@ -122,11 +117,16 @@ public class GameLogic implements MainInterface {
             sidsteBogstavVarKorrekt = false;
             System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
             antalForkerteBogstaver = antalForkerteBogstaver + 1;
-            if (antalForkerteBogstaver > 6) {
+            antalForsoegTilbage = antalForsoeg - antalForkerteBogstaver;
+            if (antalForkerteBogstaver >= antalForsoeg) {
                 spilletErTabt = true;
             }
         }
         opdaterSynligtOrd();
+    }
+    
+    public int hentAntalForsoeg(){
+        return antalForsoegTilbage;
     }
     
     public void logStatus() {
