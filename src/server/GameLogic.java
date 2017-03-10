@@ -11,6 +11,8 @@ import java.util.Random;
 import javax.jws.WebService;
 import semesterprojektgalgeleg.MainInterface;
 
+
+
 @WebService(endpointInterface = "semesterprojektgalgeleg.MainInterface")
 public class GameLogic implements MainInterface {
     private ArrayList<String> muligeOrd = new ArrayList<String>();
@@ -142,6 +144,9 @@ public class GameLogic implements MainInterface {
     
     
     public static String hentUrl(String url) throws IOException {
+        
+   
+
         BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
         StringBuilder sb = new StringBuilder();
         String linje = br.readLine();

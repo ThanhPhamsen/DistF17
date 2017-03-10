@@ -25,24 +25,37 @@ public class StandardPlayer {
                 MainInterface i = service.getPort(MainInterface.class);
                     i.nulstil();
                     
+                     try {
+                        i.hentOrdFraDr();
+                            } catch (Exception e) {
+                         e.printStackTrace();
+                         }
+
+                    
                 while(i.erSpilletSlut() == false){
-                    System.out.println("" + i.getSynligtOrd());
+                    System.out.println("---------- ");
+                    System.out.println("Synlige ord:" + i.getSynligtOrd());
                     i.logStatus();
+                System.out.println("Du har " + i.hentAntalForsoeg() + " forsøg tilbage!" );
+                System.out.println("Du har brugt disse bogstaver: " + i.getBrugteBogstaver());
+                
                 System.out.println("Indtast bogstav her: ");
                 Scanner scan = new Scanner(System.in);
                 String letter = scan.nextLine();
                 
-                i.gætBogstav(letter);
+                i.gætBogstav(letter.toLowerCase());
                 
               
                 if(i.erSpilletTabt() == true){
                     System.out.println("Spillet er tabt!");
+                    System.out.println("Ordet er følgende: " + i.getOrdet());
                 } else if(i.erSpilletVundet() == true){
                     System.out.println("Spillet er vundet!");
+                    System.out.println("Ordet er følgende: " + i.getOrdet());
                 } else {
                     System.out.println("SENT");
                 }
-                
+                 System.out.println("---------- ");
                 }    
                 
                         

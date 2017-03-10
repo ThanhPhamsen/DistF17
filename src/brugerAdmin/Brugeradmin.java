@@ -1,5 +1,6 @@
-package server;
+package brugerAdmin;
 
+import brugerAdmin.Bruger;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 @WebService
