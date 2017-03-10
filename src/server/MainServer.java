@@ -27,7 +27,7 @@ public class MainServer {
         
         System.out.println("Start server!");
         MainInterface i = new GameLogic();
-        /*
+        /* 
         Brugerdatabase db = Brugerdatabase.getInstans();
 		System.out.println("Publicerer Brugeradmin over SOAP");
 		BrugeradminImpl impl = new BrugeradminImpl();
