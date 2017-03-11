@@ -27,7 +27,9 @@ public class StandardPlayer {
                 Service service = Service.create(url, qname);
                 MainInterface i = service.getPort(MainInterface.class);
                     i.nulstil();
-                    
+                Login logintjek = new Login();
+                
+                logintjek.logintjek();
                 while(i.erSpilletSlut() == false){
                     System.out.println("" + i.getSynligtOrd());
                     i.logStatus();
