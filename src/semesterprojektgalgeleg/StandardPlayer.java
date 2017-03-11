@@ -18,8 +18,11 @@ import java.util.Scanner;
  */
 public class StandardPlayer {
     public static void main(String[] args) throws MalformedURLException {
+        
+        // localhost bruges til test på egen computer og ubuntu4 bruges til når du tester
+        // med anden server.
         URL url = new URL("http://ubuntu4.javabog.dk:9978/galgeleg?wsdl");
-          //URL url = new URL("http://localhost:9978/galgeleg?wsdl");
+         // URL url = new URL("http://localhost:9978/galgeleg?wsdl");
 		QName qname = new QName("http://server/", "GameLogicService");
                 Service service = Service.create(url, qname);
                 MainInterface i = service.getPort(MainInterface.class);
